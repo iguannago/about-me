@@ -1,0 +1,122 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin: 1em 0;
+}
+
+/* Header styles */
+header {
+  background-color: #006699;
+  color: #fff;
+  padding: 2em;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+  text-align: center;
+}
+
+/* Main content styles */
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer styles */
+footer {
+  background-color: #006699;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+/* Links styles */
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: #fff;
+  background-color: #006699;
+  padding: 0.2em;
+}
+
+/* Custom styles */
+.about-me {
+  background-color: #fff;
+  padding: 2em;
+  border: 1px solid #ccc;
+  margin-bottom: 2em;
+}
+
+.about-me h2 {
+  font-size: 2em;
+  color: #006699;
+  margin-top: 0;
+}
+
+.about-me p {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.about-me .interests {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.about-me .interests h3 {
+  font-size: 1.5em;
+  color: #006699;
+  margin-top: 1em;
+}
+
+.about-me .interests ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-me .interests li {
+  font-size: 1.2em;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  color: #555;
+}
+
+.about-me .interests li:hover {
+  color: #006699;
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-size: 96px 24px; /* Size of the sprite sheet */
+}
+
+.icon-linkedin {
+  background-position: -72px 0;
+}
