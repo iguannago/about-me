@@ -1,35 +1,42 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href='https://vitejs.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Navbar expand='lg' className='bg-body-tertiary'>
+      <Container>
+        <Navbar.Brand href='#home' className='d-flex align-items-center'>
+          <FontAwesomeIcon icon={faCloud} />
+          <span className='ms-2'>
+            <strong>Get in the Cloud</strong>
+          </span>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='ms-auto d-flex align-items-center'>
+            <Nav.Link href='#home' className='me-3'>
+              Home
+            </Nav.Link>
+            <NavDropdown
+              title='Projects'
+              id='basic-nav-dropdown'
+              className='me-3'
+            >
+              <NavDropdown.Item href='#action/3.1'>Project 1</NavDropdown.Item>
+              <NavDropdown.Item href='#action/3.2'>Project 2</NavDropdown.Item>
+              <NavDropdown.Item href='#action/3.3'>Project 3</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href='#action/3.4'>
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
 export default App;
