@@ -48,7 +48,7 @@ const App = () => {
         </Container>
       </Navbar>
 
-      <Image src='src/assets/pexels-pixabay-53594.jpg' fluid />
+      <Image src='pexels-pixabay-53594.jpg' fluid />
     </>
   );
 };
