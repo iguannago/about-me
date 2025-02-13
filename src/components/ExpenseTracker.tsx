@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
@@ -10,14 +10,35 @@ const ExpenseTracker: React.FC = () => {
   const [amount, setAmount] = useState('');
   const [person, setPerson] = useState('David');
 
-  const addExpense = () => {
-    if (!amount) return;
-    console.log('Adding expense:', { person, amount: parseFloat(amount) });
-    setExpenses([...expenses, { person, amount: parseFloat(amount) }]);
-    setAmount('');
-  };
+  useEffect(() => {
+    fetch('http://localhost:5001/expenses')
+      .then((res) => res.json())
+      .then((data) => setExpenses(data))
+      .catch((err) => console.error('Error fetching expenses:', err));
+  }, []);
 
-  console.log('Current expenses:', expenses);
+  const addExpense = async () => {
+    if (!amount) return;
+    const newExpense = { person, amount: parseFloat(amount) };
+
+    try {
+      const response = await fetch('http://localhost:5001/expenses', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newExpense),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add expense');
+      }
+
+      const savedExpense = await response.json();
+      setExpenses([...expenses, savedExpense]);
+      setAmount('');
+    } catch (error) {
+      console.error('Error adding expense:', error);
+    }
+  };
 
   const totalDavid = expenses
     .filter((e) => e.person === 'David')
@@ -26,10 +47,6 @@ const ExpenseTracker: React.FC = () => {
     .filter((e) => e.person === 'Fatima')
     .reduce((sum, e) => sum + e.amount, 0);
   const balance = totalFatima - totalDavid;
-
-  console.log('Total David:', totalDavid);
-  console.log('Total Fatima:', totalFatima);
-  console.log('Balance:', balance);
 
   return (
     <div className='p-3'>
