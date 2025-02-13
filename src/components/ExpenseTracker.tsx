@@ -67,16 +67,16 @@ const ExpenseTracker: React.FC = () => {
                 </tr>
               ))}
               <tr className='table-secondary'>
-                <td>Total: £{totalDavid.toFixed(2)}</td>
-                <td>Total: £{totalFatima.toFixed(2)}</td>
+                <td>Total: {totalDavid.toFixed(2)}€</td>
+                <td>Total: {totalFatima.toFixed(2)}€</td>
               </tr>
             </tbody>
           </table>
           <div className='mt-3 text-center fw-bold'>
             {balance > 0
-              ? `David owes Fatima £${balance.toFixed(2)}`
+              ? `David owes Fatima ${balance.toFixed(2)}€`
               : balance < 0
-              ? `Fatima owes David £${Math.abs(balance).toFixed(2)}`
+              ? `Fatima owes David ${Math.abs(balance).toFixed(2)}€`
               : 'No one owes anything!'}
           </div>
         </Card.Body>

@@ -1,14 +1,19 @@
-import React from 'react';
+import { Tabs, Tab } from 'react-bootstrap';
 import MainContent from './components/MainContent';
-import './App.css';
 import Footer from './components/Footer';
 import ExpenseTracker from './components/ExpenseTracker';
 
 const App: React.FC = () => {
   return (
     <div className='app-container'>
-      <MainContent />
-      <ExpenseTracker />
+      <Tabs defaultActiveKey='main' className='mb-3'>
+        <Tab eventKey='main' title='About Me'>
+          <MainContent />
+        </Tab>
+        <Tab eventKey='expenses' title='Expense Tracker'>
+          <ExpenseTracker />
+        </Tab>
+      </Tabs>
       <Footer />
     </div>
   );
