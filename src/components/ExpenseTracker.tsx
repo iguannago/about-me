@@ -11,7 +11,7 @@ const ExpenseTracker: React.FC = () => {
   const [person, setPerson] = useState('David');
 
   useEffect(() => {
-    fetch('http://localhost:5001/expenses')
+    fetch('https://about-me-backend-kpwo.onrender.com/expenses')
       .then((res) => res.json())
       .then((data) => setExpenses(data))
       .catch((err) => console.error('Error fetching expenses:', err));
@@ -22,7 +22,7 @@ const ExpenseTracker: React.FC = () => {
     const newExpense = { person, amount: parseFloat(amount) };
 
     try {
-      const response = await fetch('http://localhost:5001/expenses', {
+      const response = await fetch('https://about-me-backend-kpwo.onrender.com/expenses', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newExpense),
