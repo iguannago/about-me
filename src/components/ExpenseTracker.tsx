@@ -13,8 +13,8 @@ const ExpenseTracker: React.FC = () => {
   const [authenticated, setAuthenticated] = useState(false);
 
   const login = async () => {
-    const username = prompt('Enter your name:');
-    if (!username) return;
+    const userId = prompt('Enter your ID:');
+    if (!userId) return;
 
     try {
       const response = await fetch(
@@ -22,7 +22,7 @@ const ExpenseTracker: React.FC = () => {
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username }),
+          body: JSON.stringify({ userId }),
         }
       );
 
